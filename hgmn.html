@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HANGMAN GAME</title>
+</head>
+<body style="margin-left: 20%;" onload="startNew()">
+    <script src="x.js"></script>
+    <br>
+    <canvas width="300" height="300" 
+    style="background-color: aqua;" id="canvas"></canvas>
+    <br><br>
+    
+    <input type="text" id="fname">
+    <button onclick="textClear()" id="check">Check!</button>
+    <button onclick="location.reload()">Start New</button>
+    <br><br>
+    
+    Prompt: <span id="reveal"></span><br>
+    <span id="para" style="display: none;">You guessed it</span> 
+    <span id="prompt" style="display: none; color: red;">WRONG!</span>
+
+</body>
+</html>
