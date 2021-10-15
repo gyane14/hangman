@@ -38,6 +38,7 @@ function findUnique(str) {
 
 function textClear() {
     let text = document.getElementById("fname").value;
+    text = text.toUpperCase();
     document.getElementById("fname").value = "";
     checkText(text);
 }
