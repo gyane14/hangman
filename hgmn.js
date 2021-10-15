@@ -54,7 +54,7 @@ function checkText(s) {
         l = letters[randindex];
 
         letters = letters.replace(l, '');
-        
+
         reveal(l);
     }
     printHangman();
@@ -69,7 +69,7 @@ function reveal(l) {
     }
 
     document.getElementById("reveal").innerHTML = str;
-    
+
 }
 
 function replaceAt(str, index, replacement) {
