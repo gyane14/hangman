@@ -16,6 +16,7 @@ wordvow = wordvow.replace(/[B-DF-HJ-NP-TV-Z]/g, '_')
 
 function startNew() {
     document.getElementById("reveal").innerHTML = wordvow;
+    drawCanvas();
 }
 
 var letters = findUnique(wordcons);
@@ -44,6 +45,7 @@ function textClear() {
 }
 
 function checkText(s) {
+    var temp = 0; //for hanging
     if (s == word) {
         finalPrompt(true);
     }
@@ -56,6 +58,7 @@ function checkText(s) {
 
         letters = letters.replace(l, '');
 
+        hangMan(temp++);
         reveal(l);
     }
     printHangman();
@@ -81,7 +84,8 @@ function replaceAt(str, index, replacement) {
 function finalPrompt(bool) {
 
     if (bool) {
-        document.getElementById("prompt").innerHTML = "RIGHT!";
+        document.getElementById("para").innerHTML = "<hr width=40% align=\"left\">You guessed it RIGHT! ";
+        document.getElementById("prompt").innerHTML = "<br>[<i>whispers:</i> lowkey genius]";
         document.getElementById("prompt").style.color = "green";
         document.getElementById("para").style.display = "inline";
         document.getElementById("prompt").style.display = "inline";
@@ -101,12 +105,61 @@ function printHangman() {
     }
     else {
         document.getElementById("check").disabled = "true";
-        document.getElementById("para").innerHTML = "You have lost ";
-        document.getElementById("prompt").innerHTML = "ALL LIVES!";
+        document.getElementById("para").innerHTML = "<hr width=40% align=\"left\">You have lost all lives! ";
+        document.getElementById("prompt").innerHTML = "<br>[<i>whispers:</i> such a loser]";
         document.getElementById("prompt").style.color = "red";
         document.getElementById("para").style.display = "inline";
         document.getElementById("prompt").style.display = "inline";
     }
+}
+
+function drawCanvas(){
+    var canvas = document.getElementById("canvas");
+    if(canvas.getContext){
+       var asd = canvas.getContext("2d");
+        
+        asd.beginPath();
+        asd.arc(120,155,25,0,Math.PI*2,true); //circle
+        asd.moveTo(120,180);
+        asd.lineTo(120,230);
+        asd.lineTo(105,265);
+        asd.moveTo(120,230);
+        asd.lineTo(135,265);
+        asd.moveTo(120,200);
+        asd.lineTo(135,220);
+        asd.moveTo(120,200);
+        asd.lineTo(105,220);
+        asd.stroke();       
+
+        }
+        else console.log("Canvas Error: " +canvas.getContext);
+
+    }
+
+function hangMan(temp){
+    var diff = lives-temp;
+
+    var canvas = document.getElementById("canvas");
+    if(canvas.getContext){
+       var asd = canvas.getContext("2d");
+
+        switch(diff){
+            case 3: asd.fillRect(171,280,50,10);
+                    break;
+            case 2: asd.fillRect(190,30,15,250);
+                    break;
+            case 1: asd.fillRect(90,30,140,15);
+                    break;
+            case 0: asd.beginPath();
+                    asd.moveTo(120,45);
+                    asd.lineTo(120,130);
+                    asd.stroke();
+                    break;
+            default: console.log("Bad Case Input");
+        }
+    }
+
+    else console.log("Canvas Error: " + canvas.getContext);
 }
 
 /*

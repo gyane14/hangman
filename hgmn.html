@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HANGMAN GAME</title>
 </head>
-<body style="margin-left: 20%;" onload="startNew()">
+<body style="max-width: 315px; margin: auto; padding-top: 3%;" onload="startNew()">
     <script src="hgmn.js"></script>
     <br>
-    <canvas width="300" height="300" 
-    style="background-color: aqua;" id="canvas"></canvas>
+    <canvas width="308" height="320"
+    style="border: 1px solid #000;" id="canvas"></canvas>
     <br><br>
     
     <input type="text" id="fname">
@@ -19,8 +19,7 @@
     <br><br>
     
     Prompt: <span id="reveal"></span><br>
-    <span id="para" style="display: none;">You guessed it</span> 
-    <span id="prompt" style="display: none; color: red;">WRONG!</span>
-
+        <span id="para" style="display: none;">You've guessed it</span> 
+        <span id="prompt" style="display: none; color: red;">WRONG!</span>
 </body>
 </html>
