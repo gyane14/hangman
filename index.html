@@ -10,17 +10,23 @@
 <body style="max-width: 315px; margin: auto; padding-top: 3%;" onload="startNew()">
     <script src="script.js"></script>
     <br>
-    <canvas width="308" height="320"
+    <canvas width="312" height="320"
     style="border: 1px solid #000;" id="canvas"></canvas>
     <br><br>
     
-    <input type="text" id="fname">
-    <button onclick="textClear()" id="check">Check!</button>
-    <button onclick="location.reload()">Start New</button>
-    <br><br>
+    <div style="padding: 0.5rem; display: flex; justify-content:space-between;">
+        <input type="text" id="fname"><br><br>
+        <button onclick="textClear()" id="check">Check</button>
+        <button onclick="location.reload()">Reset</button>
+    </div>
+
+    <br>
     
-    Prompt: <span id="reveal"></span><br>
-        <span id="para" style="display: none;">You've guessed it</span> 
-        <span id="prompt" style="display: none; color: red;">WRONG!</span>
+    <div style="border: 1px solid black; padding: 0.5rem;">
+        Prompt: <span id="reveal"></span><br>
+            <span id="para" style="display: none;">You've guessed it</span> 
+            <span id="prompt" style="display: none; color: red;">WRONG!</span>
+    </div>
+
 </body>
 </html>
